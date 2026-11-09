@@ -1,66 +1,81 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
-    <include src="src/partials/head.html" depth="./" title="影迹 · 网站作者：呆胶布" description="网站作者：呆胶布。免注册的观影记录网页：记下想看、在看和看完，并按你的记录做本地偏好推荐。" />
+    <include src="src/partials/head.html" depth="./" title="影迹 · 作者：呆胶布" description="作者：呆胶布。免注册的观影片单：想看、在看、看完，以及本地偏好推荐。" />
     <link rel="stylesheet" href="/src/product.css" />
   </head>
-  <body>
+  <body class="cinema">
     <a class="skip" href="#main">跳到主要内容</a>
     <include src="src/partials/header.html" depth="./" current="home" />
     <main id="main" class="wrap page" tabindex="-1">
-      <p class="eyebrow">YingJi · local records</p>
-      <h1 class="page-title">影迹片单</h1>
-      <p class="app-lead">网站作者：呆胶布。打开就能记。数据只留在这台浏览器里。推荐写明「本地偏好推荐」，按你的记录和偏好打分，不调用 DeepSeek，也不读取 TMDB。</p>
-      <form id="composer" class="composer">
+      <h1 class="visually-hidden">影迹</h1>
+      <dl class="stat-row">
+        <div><dt>全部</dt><dd id="n-all">0</dd></div>
+        <div><dt>想看</dt><dd id="n-want">0</dd></div>
+        <div><dt>在看</dt><dd id="n-watching">0</dd></div>
+        <div><dt>看完</dt><dd id="n-done">0</dd></div>
+        <div><dt>均分</dt><dd id="n-avg">—</dd></div>
+      </dl>
+      <form id="composer" class="composer" hidden>
         <div class="fields">
-          <label>片名 <input id="title" name="title" required placeholder="例如：海街日记" /></label>
-          <label>状态 <select id="status" name="status"><option value="want">想看</option><option value="watching">在看</option><option value="done">看完</option></select></label>
-          <label>评分 0–5 <input id="rating" name="rating" type="number" min="0" max="5" step="1" value="0" /></label>
+          <label>片名 <input id="title" name="title" required placeholder="片名" /></label>
+          <label>状态
+            <select id="status" name="status">
+              <option value="want">想看</option>
+              <option value="watching">在看</option>
+              <option value="done">看完</option>
+            </select>
+          </label>
+          <label>评分
+            <input id="rating" name="rating" type="number" min="0" max="5" step="1" value="0" />
+          </label>
         </div>
-        <label>标签，用逗号分开 <input id="tags" name="tags" placeholder="剧情，家庭" /></label>
-        <label>笔记 <textarea id="note" name="note" rows="2" placeholder="看到哪里，或为什么想看"></textarea></label>
+        <div class="fields">
+          <label>标签 <input id="tags" name="tags" placeholder="剧情，家庭" /></label>
+          <label class="span-2">笔记 <input id="note" name="note" placeholder="一句话" /></label>
+        </div>
         <div class="row-actions">
           <button class="primary" type="submit"><span id="save-label">加入片单</span></button>
-          <button class="ghost" id="cancel-edit" type="button">清空</button>
+          <button class="ghost" id="cancel-edit" type="button">取消</button>
         </div>
       </form>
-      <div class="split">
-        <section class="panel" aria-labelledby="list-heading">
-          <h2 id="list-heading">我的记录</h2>
-          <p id="stats" class="meta"></p>
-          <div class="filters">
-            <input id="search" type="search" placeholder="搜索片名或笔记" aria-label="搜索" />
-            <select id="status-filter" aria-label="按状态筛选"><option value="">全部状态</option><option value="want">想看</option><option value="watching">在看</option><option value="done">看完</option></select>
-            <input id="tag-filter" placeholder="筛选标签" aria-label="筛选标签" />
-          </div>
-          <div id="record-list"></div>
-        </section>
-        <div>
-          <section class="panel" aria-labelledby="pref-heading">
-            <h2 id="pref-heading">观影习惯</h2>
-            <p id="pref-summary" class="meta"></p>
-            <form id="prefs" class="composer">
-              <label>偏好标签 <input id="like" placeholder="科幻，动画" /></label>
-              <label>先不看 <input id="avoid" placeholder="恐怖" /></label>
-              <button class="primary" type="submit">保存偏好</button>
-            </form>
-          </section>
-          <section class="panel" aria-labelledby="rec-heading" style="margin-top:16px">
-            <h2 id="rec-heading">本地偏好推荐</h2>
-            <p class="meta">用你已经写下的记录和偏好，在本站自带片单里排序。不是真实模型，也不是 TMDB 实时片库。</p>
-            <div id="recs"></div>
-          </section>
-        </div>
+      <div class="toolbar">
+        <button class="primary" id="open-composer" type="button">新增</button>
+        <input id="search" type="search" placeholder="搜索片名或笔记" aria-label="搜索" />
+        <select id="status-filter" aria-label="按状态筛选">
+          <option value="">全部状态</option>
+          <option value="want">想看</option>
+          <option value="watching">在看</option>
+          <option value="done">看完</option>
+        </select>
+        <input id="tag-filter" placeholder="标签" aria-label="筛选标签" />
       </div>
-      <section class="panel" style="margin-top:16px" aria-labelledby="io-heading">
-        <h2 id="io-heading">导入与导出</h2>
+      <div id="record-list" class="shelf"></div>
+      <section class="rec-block" aria-labelledby="rec-heading">
+        <div class="shelf-head">
+          <h2 id="rec-heading">本地偏好推荐</h2>
+          <p id="pref-summary" class="meta"></p>
+        </div>
+        <div id="recs" class="shelf"></div>
+      </section>
+      <details class="drawer">
+        <summary>偏好与备份</summary>
+        <form id="prefs" class="composer">
+          <div class="fields">
+            <label>偏好标签 <input id="like" placeholder="科幻，动画" /></label>
+            <label>先不看 <input id="avoid" placeholder="恐怖" /></label>
+          </div>
+          <button class="primary" type="submit">保存偏好</button>
+        </form>
         <div class="export-row">
           <button class="ghost" id="export-json" type="button">导出 JSON</button>
-          <label>导入本页导出的文件 <input id="import-json" type="file" accept="application/json,.json" /></label>
+          <label class="file-label">导入
+            <input id="import-json" type="file" accept="application/json,.json" />
+          </label>
         </div>
         <p id="import-msg" class="meta"></p>
-        <p class="meta">原 Android 项目作者是卜文旭 / Eames。<a href="source/">来源与许可</a> · <a href="about/">原来的介绍</a></p>
-      </section>
+        <p class="meta"><a href="source/">来源与许可</a> · <a href="about/">关于</a></p>
+      </details>
     </main>
     <include src="src/partials/footer.html" depth="./" />
     <script type="module" src="/src/app.ts"></script>
