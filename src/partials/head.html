@@ -1,0 +1,39 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#f7f7f5" />
+<meta name="author" content="呆胶布" />
+<meta name="description" content="{{description}}" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:title" content="{{title}}" />
+<meta property="og:description" content="{{description}}" />
+<meta property="og:site_name" content="呆胶布 · 影迹介绍" />
+<title>{{title}}</title>
+<link rel="icon" href="{{depth}}favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="/src/styles.css" />
+<script type="module" src="/src/main.ts"></script>
+<script>
+  try {
+    const stored = localStorage.getItem("daijiaobu-theme");
+    const dark =
+      stored === "dark" ||
+      (!stored && matchMedia("(prefers-color-scheme: dark)").matches);
+    document.documentElement.classList.toggle("dark", dark);
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", dark ? "#111111" : "#f7f7f5");
+  } catch {
+    /* 保持浅色 */
+  }
+</script>
+<noscript>
+  <style>
+    .navlinks {
+      display: flex !important;
+      flex-wrap: wrap;
+    }
+    .menu {
+      display: none !important;
+    }
+  </style>
+</noscript>
