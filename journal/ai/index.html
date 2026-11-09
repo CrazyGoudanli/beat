@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <include src="src/partials/head.html" depth="../../" title="AI 能力集成 · 影迹 · 网站作者：呆胶布" description="网站作者：呆胶布。转述原作者关于影迹接入 DeepSeek 与资料来源的说明。本站没有调用模型。" />
+  </head>
+  <body>
+    <a class="skip" href="#main">跳到主要内容</a>
+    <include src="src/partials/header.html" depth="../../" current="journal" />
+    <main id="main" class="wrap page prose" tabindex="-1">
+      <p class="back-row">
+        <a class="back" href="../../">← 返回介绍</a>
+        <a class="back" href="../">← 返回日志</a>
+      </p>
+      <p class="eyebrow">Journal / 阶段记录 · 日期待补充</p>
+      <h1 class="page-title">AI 能力集成</h1>
+      <p class="page-lead">原站称已接入 DeepSeek API，基于观影习惯的推荐已经可用。开发中的主要难点是推荐数据来源。</p>
+      <aside class="notice">本篇由网站作者呆胶布依据原日志整理。<a href="https://b2913336346-code.github.io/journal/yingji-ai/">阅读原页面 ↗</a>。原站写明真实调用效果、具体集成日期、个人版版本号和完整测试记录仍待实际资料补充。呆胶布没有调用 DeepSeek，也没有补这些记录。</aside>
+      <details class="toc">
+        <summary>本页目录 <span>4 个章节</span></summary>
+        <nav aria-label="本页目录">
+          <ol>
+            <li><a href="#能力说明">AI 能力集成</a></li>
+            <li><a href="#难点">开发中遇到的难点</a></li>
+            <li><a href="#调用与确认">调用与确认</a></li>
+            <li><a href="#演示与待补">演示与待补记录</a></li>
+          </ol>
+        </nav>
+      </details>
+      <h2 id="能力说明">AI 能力集成</h2>
+      <p>原日志称项目已接入 DeepSeek API，按观影习惯推荐影视作品的功能可用，并继续围绕个人记录和偏好整理观影画像。这是原作者的项目状态，不是本站的运行状态。</p>
+      <h2 id="难点">开发中遇到的难点</h2>
+      <p>原页把影视推荐的数据来源当作主要难点。当时的方案是：TMDB 提供候选和详情，应用经资料网关读取并核对；DeepSeek 提供偏好方向和筛选条件；应用在本地筛选和排序。</p>
+      <p>资料接入还包括网络连通和异常处理。原开发记录里有上游直连受限，以及经代理完成本机只读验证。原页称网关接入仍在完善。本站没有重复那次验证。</p>
+      <h2 id="调用与确认">调用与确认</h2>
+      <p>原页称源码同时提供真实调用和 Mock。真实的个性化推荐需要相应构建配置、模型凭据，以及用户确认本次画像摘要。</p>
+      <h2 id="演示与待补">演示与待补记录</h2>
+      <p>原页整理了独立验收版的界面和 90 秒演示。AI 片段被标明为 Mock，用来展示结果、反馈和加入流程，不代表真实模型或 TMDB 结果。</p>
+      <p><a href="../../#界面与演示">本站只放替代示意图，并链到原视频</a>。</p>
+      <div class="reading">
+        <a href="../foundation/">基础影视记录功能 ↗</a>
+        <a href="../iteration/">持续迭代 ↗</a>
+        <a href="https://b2913336346-code.github.io/journal/yingji-ai/">原日志 ↗</a>
+      </div>
+    </main>
+    <include src="src/partials/footer.html" depth="../../" />
+  </body>
+</html>
