@@ -1,0 +1,20 @@
+.app-lead { margin: 8px 0 18px; max-width: 68ch; }
+.composer, .panel, .record { border: 1px solid var(--line); background: var(--card); border-radius: 16px; padding: 14px; }
+.composer { display: grid; gap: 10px; }
+.fields { display: grid; grid-template-columns: 1.4fr 0.8fr 0.7fr; gap: 10px; }
+label { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
+input, select, textarea { width: 100%; border: 1px solid var(--line); background: var(--bg); color: var(--fg); border-radius: 10px; padding: 8px 10px; font: inherit; }
+.row-actions, .filters, .export-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.primary, .ghost { border-radius: 999px; padding: 8px 14px; font: inherit; cursor: pointer; }
+.primary { border: 0; background: var(--fg); color: var(--bg); }
+.ghost { border: 1px solid var(--line); background: transparent; color: var(--fg); }
+.split { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 16px; margin-top: 16px; }
+.record { display: grid; gap: 6px; margin-bottom: 10px; }
+.record h3 { margin: 0; font-size: 18px; }
+.meta { color: var(--muted); font-size: 13px; }
+.rec-card { border-top: 1px solid var(--line); padding: 10px 0; }
+.rec-card h3, .rec-card p { margin: 0; }
+.empty { color: var(--muted); margin: 8px 0; }
+@media (max-width: 800px) {
+  .fields, .split { grid-template-columns: 1fr; }
+}
