@@ -32,7 +32,7 @@ need("发布页链接", /https:\/\/github\.com\/b2913336346-code\/YingJi\/releas
 need("原介绍页链接", /https:\/\/b2913336346-code\.github\.io\/project\/yingji\//);
 need("MIT 说明", /MIT/);
 need("原作者姓名", /卜文旭/);
-need("十二个目录锚点", /id="technical-plan"[\s\S]*id="项目概述"[\s\S]*id="界面与演示"[\s\S]*id="journal-heading"/);
+need("本地偏好推荐", /本地偏好推荐/);
 need("部署文档", /docs\/deploy\.md/);
 
 const bannedMarkers = ["google-site-" + "verification", "eames-" + "theme"];
