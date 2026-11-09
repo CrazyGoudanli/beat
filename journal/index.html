@@ -1,37 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
-    <include src="src/partials/head.html" depth="../" title="开发日志 · 影迹 · 网站作者：呆胶布" description="网站作者：呆胶布。这里整理原作者卜文旭 / Eames 公开写过的影迹阶段记录，不把开发过程记成呆胶布的工作。" />
+    <include src="src/partials/head.html" depth="../" title="日志 · 作者：呆胶布" description="作者：呆胶布。影迹网页产品的简短记录。" />
   </head>
   <body>
     <a class="skip" href="#main">跳到主要内容</a>
     <include src="src/partials/header.html" depth="../" current="journal" />
     <main id="main" class="wrap page" tabindex="-1">
-      <p class="back-row"><a class="back" href="../">← 返回介绍</a></p>
-      <p class="eyebrow">Journal / attributed notes</p>
-      <h1 class="page-title">开发日志。</h1>
-      <p class="page-lead">只收录原介绍页里和影迹直接相关的三则阶段记录。日期未写明的地方继续留空。</p>
-      <aside class="notice">
-        这些不是呆胶布的开发日记。正文依据原站公开页面整理，并链回原文。原站日志里还有社团平台等其他项目，那些不属于影迹，本站没有做进来。
-      </aside>
+      <p class="back-row"><a class="back" href="../">← 返回片单</a></p>
+      <p class="eyebrow">Journal</p>
+      <h1 class="page-title">日志</h1>
+      <p class="page-lead">作者：呆胶布。这里只记这个网页产品。</p>
       <div class="journal-list">
-        <a class="journal-card" href="foundation/">
-          <span>阶段记录 · 日期待补充</span>
-          <strong>基础影视记录功能 ↗</strong>
-          <p>实现作品管理、分类、标签、观看状态等基础能力。</p>
-        </a>
-        <a class="journal-card" href="ai/">
-          <span>阶段记录 · 日期待补充</span>
-          <strong>AI 能力集成 ↗</strong>
-          <p>原站称已接入 DeepSeek API。推荐数据来源是开发里的主要难点。</p>
-        </a>
-        <a class="journal-card" href="iteration/">
-          <span>当前阶段</span>
-          <strong>持续迭代 ↗</strong>
-          <p>原站称继续完善交互、测试和体验，并整理了独立验收版演示。</p>
-        </a>
+        <a class="journal-card" href="foundation/"><span>网页</span><strong>记录可以留在浏览器里</strong><p>片名、状态、评分、标签和笔记写入本地，刷新后还在。</p></a>
+        <a class="journal-card" href="ai/"><span>推荐</span><strong>本地偏好推荐</strong><p>按已经写下的记录和偏好，在自带片单里说明理由。不是模型调用。</p></a>
+        <a class="journal-card" href="iteration/"><span>使用</span><strong>无需注册</strong><p>打开首页就能记。需要备份时导出 JSON。</p></a>
       </div>
-      <p class="caption">原日志目录：<a href="https://b2913336346-code.github.io/journal/">b2913336346-code.github.io/journal/ ↗</a></p>
     </main>
     <include src="src/partials/footer.html" depth="../" />
   </body>

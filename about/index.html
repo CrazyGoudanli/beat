@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
-    <include src="src/partials/head.html" depth="../" title="关于本站 · 网站作者：呆胶布" description="网站作者：呆胶布。说明本介绍页的范围、尚未完成的 GitHub Pages 发布，以及本地预览不是正式部署。" />
+    <include src="src/partials/head.html" depth="../" title="关于 · 作者：呆胶布" description="作者：呆胶布。影迹是免注册的观影记录网页，记录留在浏览器里，推荐用本地规则。" />
   </head>
   <body>
     <a class="skip" href="#main">跳到主要内容</a>
     <include src="src/partials/header.html" depth="../" current="about" />
     <main id="main" class="wrap page prose" tabindex="-1">
-      <p class="back-row"><a class="back" href="../">← 返回介绍</a></p>
-      <p class="eyebrow">About this website</p>
-      <h1 class="page-title">关于本站</h1>
-      <p class="page-lead">网站作者：呆胶布。这是影迹的介绍页，不是一款新的 Android 应用。</p>
-      <aside class="notice">
-        <strong>网站作者：呆胶布。</strong>
-        GitHub 账号是 <a href="https://github.com/CrazyGoudanli">CrazyGoudanli</a>。
-        应用作者是卜文旭 / Eames。两件事不要并成一件。
-      </aside>
-      <h2>本站做什么</h2>
-      <p>按原介绍页的阅读顺序，提供目录、项目概述、功能、推荐流程、进展、界面说明和开发日志。外链指向原仓库、原发布页和原介绍页，并标明来源。</p>
-      <p>页面是静态文件，可以用任意静态网站托管，不需要数据库、付费接口或密钥。浏览器里的明暗切换只写在本机 localStorage，键名是 <code>daijiaobu-theme</code>。没有账号，没有统计上报，没有表单。</p>
-      <h2>本站不做什么</h2>
+      <p class="back-row"><a class="back" href="../">← 返回片单</a></p>
+      <p class="eyebrow">About</p>
+      <h1 class="page-title">关于影迹</h1>
+      <p class="page-lead">作者：呆胶布。这是一个打开就能用的观影记录网页。</p>
+      <h2>怎么用</h2>
       <ul>
-        <li>不把影迹说成呆胶布开发的应用。</li>
-        <li>不补写原站留空的开发日期，不把 2026-11-06 的验收录制写成呆胶布的测试。</li>
-        <li>不调用 DeepSeek、TMDB 或其他 API，也不演示「真实模型结果」。</li>
-        <li>不托管 APK，不收集观影记录或密钥。</li>
-        <li>不复制没有许可的原站代码和独有素材。</li>
+        <li>在首页写下片名、想看 / 在看 / 看完、评分、标签和笔记。</li>
+        <li>记录保存在这台浏览器里，刷新还在。可以导出 JSON，再导入回来。</li>
+        <li>偏好栏写下喜欢或不想看的标签。首页的「本地偏好推荐」只按这些文字在自带片单里打分。</li>
       </ul>
-      <h2>发布状态</h2>
-      <p>源码仓库是 <a href="https://github.com/CrazyGoudanli/beat">CrazyGoudanli/beat</a>。GitHub Pages 地址是 <a href="https://crazygoudanli.github.io/beat/">crazygoudanli.github.io/beat/</a>。从那个地址打开时，这就是正式页面。本机 <code>127.0.0.1</code> 只是开发预览。</p>
-      <p>构建资源前缀是 <code>/beat/</code>。发布用仓库里的 GitHub Actions，不另建仓库，也不启用付费服务。步骤写在 <code>docs/deploy.md</code>。<a href="../source/">来源与许可</a>说明哪些内容可以随仓库分发。</p>
+      <p>推荐不是模型调用，也没有外部片库。自带片单是本站写好的示例片名。</p>
+      <p><a href="../source/">来源与许可</a></p>
     </main>
     <include src="src/partials/footer.html" depth="../" />
   </body>
