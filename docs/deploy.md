@@ -1,10 +1,10 @@
 # 部署说明
 
-网站作者：呆胶布。
+作者：呆胶布。
 
-本文说明影迹介绍页如何发布到已有仓库 [CrazyGoudanli/beat](https://github.com/CrazyGoudanli/beat)。正式地址是 <https://crazygoudanli.github.io/beat/>。本地预览不是这个正式地址。不新建别的仓库，也不启用付费服务。
+本文说明影迹网页如何发布到已有仓库 [CrazyGoudanli/beat](https://github.com/CrazyGoudanli/beat)。正式地址是 <https://crazygoudanli.github.io/beat/>。本地预览不是这个正式地址。不新建别的仓库，也不启用付费服务。
 
-站点不需要环境变量、API Key、数据库或付费服务。不要把 DeepSeek、TMDB、签名文件或个人观影记录放进仓库。
+站点不需要环境变量、API Key、数据库或付费服务。不要把模型密钥、外部片库密钥或个人观影记录放进仓库。
 
 ## 1. 本地确认
 
@@ -26,13 +26,11 @@ npm run preview
 
 核对：
 
-- 标题、顶栏和页脚都能看到「网站作者：呆胶布」
-- 正文把 Android 应用归于卜文旭 / Eames，而不是呆胶布
-- 目录 12 节都能跳转
-- 四张图标注为替代示意图，点击可以放大
-- 「打开原站演示视频」会离开本站，指向原作者的 mp4
-- 日志三篇、来源页、关于页可以打开
-- 浏览器宽度约 390px 时，导航收到菜单里，作者栏仍完整可读
+- 标题、顶栏和页脚都能看到「作者：呆胶布」
+- 首页是可用的片单，可以新增记录，刷新后还在
+- 推荐区标题是「本地偏好推荐」
+- 日志、来源页、关于页可以打开
+- 浏览器宽度约 390px 时，导航收到菜单里，顶栏只保留一套
 
 ## 2. 仓库和路径
 
@@ -46,4 +44,4 @@ GitHub Pages 项目站点地址是 <https://crazygoudanli.github.io/beat/>。Vit
 
 工作流执行 `npm install`、`npm run check` 和 `npm run build`，再上传 `dist/`。Node.js 版本是 22。
 
-发布后的站点仍然是介绍页。不要把该 URL 描述成呆胶布开发或实测过的 Android 应用。
+发布后的站点是免注册的观影记录网页，数据只保存在访问者的浏览器里。

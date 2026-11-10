@@ -26,16 +26,11 @@ function need(label, pattern) {
   if (!pattern.test(all)) problems.push(`缺少：${label}`);
 }
 
-need("网站作者栏", /网站作者：呆胶布/);
-need("原仓库链接", /https:\/\/github\.com\/b2913336346-code\/YingJi/);
-need("发布页链接", /https:\/\/github\.com\/b2913336346-code\/YingJi\/releases/);
-need("原介绍页链接", /https:\/\/b2913336346-code\.github\.io\/project\/yingji\//);
-need("MIT 说明", /MIT/);
-need("原作者姓名", /卜文旭/);
+need("作者署名", /作者：呆胶布/);
 need("本地偏好推荐", /本地偏好推荐/);
-need("部署文档", /docs\/deploy\.md/);
+need("MIT 说明", /MIT/);
 
-const bannedMarkers = ["google-site-" + "verification", "eames-" + "theme"];
+const leftoverNames = ["卜文旭", "Eames", "b2913336346-code", "b2913336346"];
 const bannedClaims = [
   "呆胶布开发了",
   "呆胶布开发完成",
@@ -49,8 +44,10 @@ const bannedClaims = [
 
 for (const item of corpus) {
   if (item.file === "scripts/check-content.mjs") continue;
-  for (const marker of bannedMarkers) {
-    if (item.text.includes(marker)) problems.push(`${item.file} 含有原站专有标记`);
+  for (const name of leftoverNames) {
+    if (item.text.includes(name)) {
+      problems.push(`${item.file} 仍含有不应出现的署名或来源标识：${name}`);
+    }
   }
   for (const claim of bannedClaims) {
     if (item.text.includes(claim)) problems.push(`${item.file} 含有不实表述：${claim}`);
